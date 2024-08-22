@@ -1,50 +1,193 @@
-body{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+/* Reseteo básico */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+}
+
+/* Establece la base de 1rem igual a 16px (típica configuración por defecto del navegador) */
+html {
+    font-size: 16px;
+
+    /* Ajusta el interlineado para consistencia */
+    line-height: 1.15;
+    /* Evita ajustes automáticos de tamaño de texto en iOS */
+    -webkit-text-size-adjust: 100%;
+
+}
+
+/* Estilos generales */
+body {
+    /*    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;*/
+
+    align-items: center;
+    background-color: #F7F9FC;
+    color: #333333;
+    display: flex;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+header,
+footer {
+    margin: 1.25rem 0;
     text-align: center;
 }
 
-h1{
-    color: #007bff;
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    /* Espaciado entre las cajas 10px */
+    gap: 0.625rem;
+    grid-template-columns: repeat(2, 1fr);
+    /* 1200px */
+    max-width: 75rem;
+    /* 20px */
+    padding: 1.25rem;
+    /* Espaciado interno */
+    width: 100%;
 }
 
-img{
-    border-radius: 50%;
+/* Cajas 1er nivel */
+.grid-item {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    /* 8px */
+    border-radius: 0.5rem;
+    padding: 2.5rem;
+    /* 40px */
+    text-align: center;
 }
 
-ul{  /* que funcion tiene esto */
-    list-style-type: none;
-    padding: 0;
+/* Estilo especial para la última caja cuando está sola en la fila */
+.bento-grid .grid-item:last-child:nth-child(odd) {
+    grid-column: span 2;
+    /* La caja ocupará ambas columnas */
 }
 
-a{ /* que funcion tiene esto */
-    color: #007bff;
+/* Cajas 2do nivel */
+.inner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.625rem;
+    /* Espacio entre las cajas internas */
+}
+
+/* Cajas 2do/3er nivel */
+.inner-box {
+    background-color: #CCCCCC;
+    /* Color de fondo para las cajas internas */
+    margin: 0.625rem 0;
+    /* Espaciado vertical entre las cajas internas */
+    padding: 1.25rem;
+    /* Espaciado interno */
+    border-radius: 0.5rem;
+    /* Bordes redondeados */
+    text-align: center;
+    /* Centrar el texto */
+
+}
+
+
+/*TEXTOS STYLE*/
+a {
+    /* estilo de los enlaces */
+    color: #0066CC;
     text-decoration: none;
 }
 
-a:hover{ /* que funcion tiene esto */
+a:hover {
+    /* color que toma put de enlace */
     text-decoration: underline;
 }
 
-footer{
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
+/*BOTON STYLE*/
+.theme-button {
+    align-items: center;
+    /* Color de acento del modo claro */
+    background-color: #0066cc;
+    border: none;
+    border-radius: 0.5rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    /* Tamaño del botón */
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease;
 }
 
-body.dark-mode{
-    background-color: #333;
-    color: #f4f4f4;
+/* Estilo para el icono dentro del botón */
+.theme-button .icon {
+    margin-right: 0.5rem;
+    /* Espacio entre el icono y el texto */
+    font-size: 1rem;
+    /* Tamaño del icono */
 }
 
-body.dark-mode h1{
-    color: #ffcc00;
+/* Estilo para el texto dentro del botón */
+.theme-button .text {
+    font-size: 1rem;
 }
 
-body.dark-mode footer{
+/* Botón en hover */
+.theme-button:hover {
+    background-color: #004C99;
+    /* Color más oscuro al pasar el ratón */
+}
+
+/* Para MODO OSCURO */
+body.dark-mode {
+    background-color: #1A1A1A;
+    color: #E0E0E0;
+}
+
+body.dark-mode footer {
     background-color: #222;
+}
+
+body.dark-mode .grid-item {
+    background-color: #2E2E2E;
+    border: 1px solid #3D3D3D;
+}
+
+body.dark-mode a {
+    color: #4DB3FF;
+}
+
+body.dark-mode .inner-box {
+    background-color: #3D3D3D;
+}
+
+/* Botón en modo oscuro */
+body.dark-mode .theme-button {
+    background-color: #4DB3FF;
+    /* Color de acento del modo oscuro */
+    color: #1A1A1A;
+}
+
+/* Botón en modo oscuro hover */
+body.dark-mode .theme-button:hover {
+    background-color: #3399FF;
+}
+
+/* Responsive Design, siempre debajo de los grid */
+@media (max-width: 48rem) {
+
+    /* 768px */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        /* Una sola columna en pantallas pequeñas */
+    }
+
+    /* Asegura que las cajas ocupen todo el espacio en pantallas pequeñas */
+    .bento-grid .grid-item:last-child {
+        grid-column: span 1;
+    }
 }

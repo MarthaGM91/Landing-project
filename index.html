@@ -1,32 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <h1>Personal Profile</h1>
-    <p>I am a frontend developer in training</p>
-    <img src="./Resourse/diseno-ilustracion-vector-personaje-avatar-mujer-joven_24877-18536.avif" alt="Avatar image" width="150"/>
-    <h2>My Skills</h2> <!-- Subtítulo para la lista -->
-    <ul>
-        <li>Visual Code View</li>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-    </ul>
-    <h2>My Social Media</h2>
-    <ul>
-        <li><a href="https://www.linkedin.com/in/marthagarciamontero/" target="_blank" >linkedin</a></li>
-        <li><a href="https://github.com/MarthaGM91" target="_blank">github</a></li>
-    </ul>
+    <header>
+        <button id="theme-toggle" class="theme-button">
+            <span class="icon">🌙</span> <!-- Puedes cambiar el icono a una imagen o SVG -->
+            <span class="text">Dark mode</span>
+        </button>
+    </header>
+
+    <main class="bento-grid">
+        <div class="grid-item item1">
+            <img src="Resourse/diseno-ilustracion-vector-personaje-avatar-mujer-joven_24877-18536.png"
+                alt="Avatar image" width="200" />
+            <h1>MARTHA GARCIA</h1>
+            <h5>F R O N T E N D - D E V E L O P E N D</h5>
+
+        </div>
+        <div class="grid-item item4">Proyecto 4</div>
+        <div class="grid-item item2">
+            <h2>Skills</h2> <!-- Subtítulo para la lista -->
+
+            Visual Code View
+            HTML
+            CSS</li>
+            JavaScript</li>
+
+        </div>
+        <div class="grid-item item3">
+            <h2>Contact</h2>
+
+            <li><a href="https://www.linkedin.com/in/marthagarciamontero/" target="_blank">linkedin</a></li>
+            <li><a href="https://github.com/MarthaGM91" target="_blank">github</a></li>
+
+        </div>
+
+        <div class="grid-item item5">Proyecto 5
+            <div class="inner-box">Contenido 1.1</div>
+            <div class="inner-box">Contenido 1.2</div>
+
+            <div class="inner-grid">
+                <div class="inner-box">Contenido 2.1</div>
+                <div class="inner-box">Contenido 2.2</div>
+                <div class="inner-box">Contenido 2.2</div>
+            </div>
+        </div>
+    </main>
+
     <footer>
         <p>© 2024 marthagarciamontero. Todos los derechos reservados.</p>
-        <button id="theme-toggle">Change theme</button>
+
     </footer>
-   
+
 </body>
+
 </html>
