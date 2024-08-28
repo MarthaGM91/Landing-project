@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
             this.querySelector('.text').textContent = 'Dark Mode';
             this.querySelector('.icon').textContent = '🌙';
         }
+
+        
     });
 
 });

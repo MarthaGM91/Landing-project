@@ -1,8 +1,12 @@
+/* Importación de la tipografía Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 /* Reseteo básico */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /*outline: solid 1px red;*/
 
 }
 
@@ -19,16 +23,11 @@ html {
 
 /* Estilos generales */
 body {
-    /*    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;*/
-
     align-items: center;
     background-color: #F7F9FC;
     color: #333333;
     display: flex;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
@@ -39,6 +38,9 @@ footer {
     margin: 1.25rem 0;
     text-align: center;
 }
+
+
+/* Responsive Design, siempre debajo de los grid */
 
 /* Bento Grid */
 .bento-grid {
@@ -60,9 +62,15 @@ footer {
     border: 1px solid #E0E0E0;
     /* 8px */
     border-radius: 0.5rem;
-    padding: 2.5rem;
+    padding-block-end: 2.5rem;
     /* 40px */
     text-align: center;
+    display: grid;
+    justify-content: center;
+    padding-top: 2rem;
+    position: relative;
+
+    
 }
 
 /* Estilo especial para la última caja cuando está sola en la fila */
@@ -71,13 +79,6 @@ footer {
     /* La caja ocupará ambas columnas */
 }
 
-/* Cajas 2do nivel */
-.inner-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.625rem;
-    /* Espacio entre las cajas internas */
-}
 
 /* Cajas 2do/3er nivel */
 .inner-box {
@@ -94,18 +95,22 @@ footer {
 
 }
 
-
 /*TEXTOS STYLE*/
 a {
     /* estilo de los enlaces */
     color: #0066CC;
     text-decoration: none;
+    
 }
 
 a:hover {
     /* color que toma put de enlace */
     text-decoration: underline;
 }
+
+/* Estilos para el contenedor del grid */
+
+
 
 /*BOTON STYLE*/
 .theme-button {
@@ -177,17 +182,102 @@ body.dark-mode .theme-button:hover {
     background-color: #3399FF;
 }
 
-/* Responsive Design, siempre debajo de los grid */
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
 
     /* 768px */
     .bento-grid {
-        grid-template-columns: 1fr;
         /* Una sola columna en pantallas pequeñas */
+        grid-template-columns: 1fr;
+
     }
 
     /* Asegura que las cajas ocupen todo el espacio en pantallas pequeñas */
-    .bento-grid .grid-item:last-child {
+    .bento-grid .grid-item:last-child.grid-item:last-child:nth-child(odd) {
+
         grid-column: span 1;
+    }
+}
+
+
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Espacio entre los logos */
+    gap: 1.25rem;
+}
+
+.tool-logo {
+    /* Tamaño de los logos */
+    width: 5rem;
+    height: auto;
+    /* Asegura que los logos se ajusten sin distorsionarse */
+    object-fit: contain;
+}
+
+/* Contenedor principal del carrusel */
+.carousel-container {
+    /* Ancho completo de la ventana de visualización */
+    width: 100%;
+
+    /* Oculta cualquier desbordamiento horizontal */
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+/* Contenido del carrusel */
+.carousel-content {
+    display: flex;
+    
+    /* Controla la velocidad y el ciclo del scroll */
+    animation: scroll 50s linear infinite;
+    */
+    /*background-color: #f0f0f0;*/
+}
+
+/* Cada elemento del carrusel */
+.carousel-item {
+    /* Ancho de cada ítem */
+    min-width: 200px;
+    /*Altura de cada item */
+    height: 150px;
+    /* Espacio entre los ítems */
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
+    width: 100%;
+    /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
+    /*height: auto;  */
+    height: 100%;
+    /* Asegura que la imagen cubra completamente el contenedor, recortando si es necesario */
+    object-fit: cover;
+    /* animation: scroll 10s linear infinite;*/
+
+    /* Opcional: agrega bordes redondeados para mejorar la apariencia */
+    border-radius: 8px;
+   
+}
+
+
+
+
+/* Animación para el scroll automático */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* Mueve el contenido hasta el final de su contenedor */
     }
 }
