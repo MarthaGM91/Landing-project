@@ -1,283 +1,188 @@
-/* Importación de la tipografía Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+:root {
+    --dark-gray: #333;
+    --medium-gray: #666;
+    --light-gray: #999;
+    --lighter-gray: #ccc;
+    --lightest-gray: #eee;
+    --spacing-unit: 16px;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --height-sm: 20px;
+    --height-md: 40px;
+    --height-lg: 64px;
+    --accent-color: goldenrod;
+}
 
-/* Reseteo básico */
+/* Reset básico */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*outline: solid 1px red;*/
-
+    box-sizing: border-box;
+    outline: solid 1px red;
 }
 
-/* Establece la base de 1rem igual a 16px (típica configuración por defecto del navegador) */
-html {
-    font-size: 16px;
-
-    /* Ajusta el interlineado para consistencia */
-    line-height: 1.15;
-    /* Evita ajustes automáticos de tamaño de texto en iOS */
-    -webkit-text-size-adjust: 100%;
-
-}
-
-/* Estilos generales */
+/* General Style */
 body {
-    align-items: center;
-    background-color: #F7F9FC;
-    color: #333333;
     display: flex;
-    font-family: 'Montserrat', sans-serif;
     flex-direction: column;
-    justify-content: center;
     min-height: 100vh;
+    background-color: var(--lightest-gray);
 }
 
-header,
-footer {
-    margin: 1.25rem 0;
-    text-align: center;
+div {
+    border-radius: var(--border-radius-md);
+}
+
+/* Top-Bar Section */
+.top-bar {
+    width: 100%;
+    height: 70px;
+    background-color: var(--dark-gray);
+    padding: 0 var(--spacing-unit);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    width: 100px;
+    height: 30px;
+    background-color: var(--medium-gray);
+}
+
+.main-nav {
+    display: flex;
+    gap: var(--spacing-unit);
+    justify-content: end;
+}
+
+.nav-item {
+    width: 82px;
+    height: 30px;
+    background-color: var(--light-gray);
+}
+
+/* HERO Section */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-unit);
+    height: 500px;
+    background-color: var(--medium-gray);
+    padding: 0 var(--spacing-unit);
+
+}
+
+.cta-box {
+    height: 60%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.label-hero {
+    width: inherit;
+    height: var(--height-lg);
+    background-color: var(--lighter-gray);
+    margin-bottom: var(--spacing-unit);
+}
+
+.button-hero {
+    width: 100px;
+    height: var(--height-md);
+    background-color: var(--light-gray);
+    margin-bottom: var(--spacing-unit);
+}
+
+.hero-imagen {
+    width: 50%;
+    height: 400px;
+    background-color: var(--lighter-gray);
+    border-radius: var(--border-radius-lg);
+}
+
+/* FEATURES Section */
+.features {
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+    background-color: var(--lightest-gray);
+}
+
+.feature-card {
+    height: 200px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-unit);
 }
 
 
-/* Responsive Design, siempre debajo de los grid */
+/* TESTIMONIAL Section */
+.testimonials {
+    background-color: white;
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+}
 
-/* Bento Grid */
-.bento-grid {
+.testimonial-grid {
     display: grid;
-    /* Espaciado entre las cajas 10px */
-    gap: 0.625rem;
-    grid-template-columns: repeat(2, 1fr);
-    /* 1200px */
-    max-width: 75rem;
-    /* 20px */
-    padding: 1.25rem;
-    /* Espaciado interno */
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-unit);
 }
 
-/* Cajas 1er nivel */
-.grid-item {
-    background-color: #FFFFFF;
-    border: 1px solid #E0E0E0;
-    /* 8px */
-    border-radius: 0.5rem;
-    padding-block-end: 2.5rem;
-    /* 40px */
-    text-align: center;
-    display: grid;
-    justify-content: center;
-    padding-top: 2rem;
-    position: relative;
-
-    
-}
-
-/* Estilo especial para la última caja cuando está sola en la fila */
-.bento-grid .grid-item:last-child:nth-child(odd) {
-    grid-column: span 2;
-    /* La caja ocupará ambas columnas */
+.testimonial-card {
+    height: 240px;
+    background-color: var(--lighter-gray);
 }
 
 
-/* Cajas 2do/3er nivel */
-.inner-box {
-    background-color: #CCCCCC;
-    /* Color de fondo para las cajas internas */
-    margin: 0.625rem 0;
-    /* Espaciado vertical entre las cajas internas */
-    padding: 1.25rem;
-    /* Espaciado interno */
-    border-radius: 0.5rem;
-    /* Bordes redondeados */
-    text-align: center;
-    /* Centrar el texto */
 
+
+
+/* PRICES Section */
+.pricing {
+    background-color: var(--lightest-gray);
+    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
 }
 
-/*TEXTOS STYLE*/
-a {
-    /* estilo de los enlaces */
-    color: #0066CC;
-    text-decoration: none;
-    
-}
-
-a:hover {
-    /* color que toma put de enlace */
-    text-decoration: underline;
-}
-
-/* Estilos para el contenedor del grid */
-
-
-
-/*BOTON STYLE*/
-.theme-button {
-    align-items: center;
-    /* Color de acento del modo claro */
-    background-color: #0066cc;
-    border: none;
-    border-radius: 0.5rem;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: flex;
-    font-size: 1rem;
-    /* Tamaño del botón */
-    padding: 0.75rem 1.5rem;
-    transition: background-color 0.3s ease;
-}
-
-/* Estilo para el icono dentro del botón */
-.theme-button .icon {
-    margin-right: 0.5rem;
-    /* Espacio entre el icono y el texto */
-    font-size: 1rem;
-    /* Tamaño del icono */
-}
-
-/* Estilo para el texto dentro del botón */
-.theme-button .text {
-    font-size: 1rem;
-}
-
-/* Botón en hover */
-.theme-button:hover {
-    background-color: #004C99;
-    /* Color más oscuro al pasar el ratón */
-}
-
-/* Para MODO OSCURO */
-body.dark-mode {
-    background-color: #1A1A1A;
-    color: #E0E0E0;
-}
-
-body.dark-mode footer {
-    background-color: #222;
-}
-
-body.dark-mode .grid-item {
-    background-color: #2E2E2E;
-    border: 1px solid #3D3D3D;
-}
-
-body.dark-mode a {
-    color: #4DB3FF;
-}
-
-body.dark-mode .inner-box {
-    background-color: #3D3D3D;
-}
-
-/* Botón en modo oscuro */
-body.dark-mode .theme-button {
-    background-color: #4DB3FF;
-    /* Color de acento del modo oscuro */
-    color: #1A1A1A;
-}
-
-/* Botón en modo oscuro hover */
-body.dark-mode .theme-button:hover {
-    background-color: #3399FF;
-}
-
-@media (max-width: 768px) {
-
-    /* 768px */
-    .bento-grid {
-        /* Una sola columna en pantallas pequeñas */
-        grid-template-columns: 1fr;
-
-    }
-
-    /* Asegura que las cajas ocupen todo el espacio en pantallas pequeñas */
-    .bento-grid .grid-item:last-child.grid-item:last-child:nth-child(odd) {
-
-        grid-column: span 1;
-    }
-}
-
-
-.tools-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* Espacio entre los logos */
-    gap: 1.25rem;
-}
-
-.tool-logo {
-    /* Tamaño de los logos */
-    width: 5rem;
-    height: auto;
-    /* Asegura que los logos se ajusten sin distorsionarse */
-    object-fit: contain;
-}
-
-/* Contenedor principal del carrusel */
-.carousel-container {
-    /* Ancho completo de la ventana de visualización */
-    width: 100%;
-
-    /* Oculta cualquier desbordamiento horizontal */
-    overflow: hidden;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-}
-
-/* Contenido del carrusel */
-.carousel-content {
-    display: flex;
-    
-    /* Controla la velocidad y el ciclo del scroll */
-    animation: scroll 50s linear infinite;
-    */
-    /*background-color: #f0f0f0;*/
-}
-
-/* Cada elemento del carrusel */
-.carousel-item {
-    /* Ancho de cada ítem */
-    min-width: 200px;
-    /*Altura de cada item */
-    height: 150px;
-    /* Espacio entre los ítems */
-    margin-right: 10px;
+.pricing-table {
+    gap: var(--spacing-unit);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.carousel-item img {
-    /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
-    width: 100%;
-    /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
-    /*height: auto;  */
-    height: 100%;
-    /* Asegura que la imagen cubra completamente el contenedor, recortando si es necesario */
-    object-fit: cover;
-    /* animation: scroll 10s linear infinite;*/
+.pricing-tier {
+    width: 30%;
+    height: 400px;
+    background-color: white;
+    border: 1px solid var(--lighter-gray);
+}
 
-    /* Opcional: agrega bordes redondeados para mejorar la apariencia */
-    border-radius: 8px;
-   
+.pricing-tier.highlighted {
+    height: 450px;
+    /* background-color: var(--lighter-gray); */
+    border: 2px solid var(--dark-gray);
 }
 
 
 
+/* FOOTER Section */
 
-/* Animación para el scroll automático */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
+.page-footer {
 
-    100% {
-        transform: translateX(-50%);
-        /* Mueve el contenido hasta el final de su contenedor */
-    }
+    height: 200px;
+    background-color: var(--dark-gray);
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+P {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: var(--lightest-gray);
+    margin: 5%;
 }
